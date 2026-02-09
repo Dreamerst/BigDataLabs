@@ -6,14 +6,14 @@ import seaborn as sns
 
 sql = """
     SELECT
-      ra."year"                                   AS race_year,
-      ra."date"::date                              AS race_date,
-      c.country                             AS circuit_country,
-      c."lat"                                     AS circuit_lat,
-      c."lng"                                     AS circuit_lng,
-      d."driverid"                                AS driver_id,
-      r."positionorder"::integer                  AS position_order,
-      r."points"::numeric                         AS points
+      ra."year" AS race_year,
+      ra."date"::date AS race_date,
+      c.country AS circuit_country,
+      c."lat" AS circuit_lat,
+      c."lng" AS circuit_lng,
+      d."driverid" AS driver_id,
+      r."positionorder"::integer AS position_order,
+      r."points"::numeric AS points
     FROM "results" r
     JOIN "races"   ra ON r."raceid"    = ra."raceid"
     JOIN "drivers" d  ON r."driverid"  = d."driverid"
