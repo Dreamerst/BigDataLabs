@@ -8,6 +8,7 @@ sql = """
     SELECT
       ra."year"                                   AS race_year,
       ra."date"::date                              AS race_date,
+      c.country                             AS circuit_country,
       c."lat"                                     AS circuit_lat,
       c."lng"                                     AS circuit_lng,
       d."driverid"                                AS driver_id,
@@ -62,7 +63,6 @@ def create_plots(df):
         columns='race_year',
         aggfunc='mean'
     )
-
     plt.subplot(1, 2, 1)
     sns.heatmap(heatmap_data, cmap='YlOrRd', annot=True, fmt='.1f', linewidths=0.5)
     plt.title('Средние очки по годам и позициям')
